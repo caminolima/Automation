@@ -1,3 +1,6 @@
+Cuando te de error en java "Element is not clickable at point" y no puedas hacer click en una pagina 
+al estar automatizando en java aqui tenemos una solución:
+
 •	Se define en la sección de links del xpath el elemento:
   private String elementoLink = "//a[normalize-space()='Edit']";
 •	Se define en la pagina principal la siguiente función
