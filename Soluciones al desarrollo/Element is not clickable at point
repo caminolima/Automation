@@ -1,0 +1,20 @@
+•	Se define en la sección de links del xpath el elemento:
+  private String elementoLink = "//a[normalize-space()='Edit']";
+•	Se define en la pagina principal la siguiente función
+    public void clickOnSectionElemento(String section) {
+        String xpathSection = String.format(elementoLink, section);
+        //clickElement(xpathSection);   
+        System.out.println("xpathSection: " + xpathSection);
+
+        if (xpathSection != null) {
+            WebElement element = driver.findElement(By.xpath(xpathSection));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        }  }
+    }
+
+Cuyas claves son:
+  WebElement element = driver.findElement(By.xpath(xpathSection));
+  ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+•	Y en la pagina de steps llamamos por la etiqueta que tiene el elemento en la parte html antes del href:
+landingpage.clickOnSectionElemento("Edit");
