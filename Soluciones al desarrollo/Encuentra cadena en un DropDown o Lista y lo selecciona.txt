@@ -1,0 +1,22 @@
+public void ValidaListaCountrys() {
+
+        //Funcion que busca parte de un valor en un dropdown y selecciona el valor que lo contiene, en este caso el prefijo +34
+        List<String> ListaDeprefijosPaises = getDropdownValues(DropDownCountryCode);
+        String busqueda = "+34";
+
+        int indice = IntStream.range(0, ListaDeprefijosPaises.size())
+            .filter(i -> ListaDeprefijosPaises.get(i).contains(busqueda))
+            .findFirst()
+            .orElse(-1); // Devuelve -1 si no encuentra coincidencia
+
+        System.out.println("Índice encontrado: " + indice);
+
+        if (indice != -1) {
+            selectFromDropdownByIndex(DropDownCountryCode, indice);
+            System.out.println("Valor encontrado: " + ListaDeprefijosPaises.get(indice));
+        } else {
+            System.out.println("El prefijo +34 NO está presente en la lista de países.");
+        }
+
+
+    }
